@@ -24,3 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           # 必要なパッケージインストール・・・②
 
+      - name: Run script
+        run: |
+          # 定期実行するファイルを指定。・・・③
+          python scrape.py
