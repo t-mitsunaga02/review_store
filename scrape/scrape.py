@@ -11,6 +11,6 @@ def driver_init():
 
 driver = driver_init()
 driver.get('https://hashito.biz/')
-print(driver.find_element_by_xpath('/html/body/div[1]/div/section/div/div/h2').text)
+driver.find_element_by_xpath('/html/body/div[1]/div/section/div/div/h2').to_csv("scrape/口コミデータ.csv")
 print(driver.current_url)
 driver.quit()
