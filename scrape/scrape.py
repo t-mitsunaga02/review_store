@@ -1,26 +1,16 @@
-import requests
-import pickle
+from get_chrome_driver import GetChromeDriver
+from selenium import webdriver
 
-from bs4 import BeautifulSoup
-import slackweb
+get_driver = GetChromeDriver()
+get_driver.install()
 
+def driver_init():
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    return webdriver.Chrome(options=options)
 
-TARGET_URL = 'https://shikaku-mafia.com/'
-
-
-# 以前の新着データを読み込む
-with open('./before_article.pickle', 'rb') as f:
-    before_new_article = pickle.load(f)
-
-# Webページを取得する
-html = requests.get(TARGET_URL)
-soup = BeautifulSoup(html.content, "html.parser")
-
-# 新着データを抽出する
-new_article = str(soup.find(class_="entry-card-wrap").get("title"))
-with open('./before_article.pickle', 'wb') as f:
-    pickle.dump(before_article.pickle, f)
-
-# 最新記事が更新されているかどうかチェック
-if new_article != before_new_article:
-    print('新着あり')
+driver = driver_init()
+driver.get('https://hashito.biz/')
+print(driver.find_element_by_xpath('/html/body/div[1]/div/section/div/div/h2').text)
+print(driver.current_url)
+driver.quit()
