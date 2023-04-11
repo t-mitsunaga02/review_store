@@ -7,7 +7,7 @@ on:
     - cron: '0 8 * * *'
 
 jobs:
-  selenium:
+  BSaction:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,6 +16,6 @@ jobs:
           python-version: '3.8'
           architecture: 'x64'
       - run: |
-          pip install get-chrome-driver --upgrade
-          pip install -r scrape/requirements.txt
+          pip install pandas
+          pip install requests
           python scrape/scrape.py
