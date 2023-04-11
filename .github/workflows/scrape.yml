@@ -1,9 +1,6 @@
 # ワークフロー名
 name: scrape-github-actions
 on:
-  push:
-    branches: 
-      - master
   workflow_dispatch:
   schedule:
     # 定期実行する時間・・・①
