@@ -491,9 +491,9 @@ def scrape_kakaku(url,productCnt):
             break
 
     #スクレイプ結果をCSVに出力
-    scr.to_csv("source/口コミ_ローデータ.csv")
+    scr.to_csv("C:\work\口コミ_ローデータ.csv")
 
-for cnt in range(0,10):
+for cnt in range(0,5):
   scrape_kakaku(urllist[cnt],str(cnt+1))    
     
 
