@@ -2,6 +2,9 @@
 name: scrape-github-actions
 on:
   push:
+    branches: 
+      - master
+  workflow_dispatch:
   schedule:
     # 定期実行する時間・・・①
     - cron: '0 8 * * *'
