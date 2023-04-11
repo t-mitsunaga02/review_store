@@ -1,9 +1,10 @@
 # ワークフロー名
 name: housework_bot
 on:
+  push:
   schedule:
     # 定期実行する時間・・・①
-    - cron: '0 9 * * *'
+    - cron: '0 8 * * *'
 
 jobs:
   build:
